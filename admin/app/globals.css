@@ -82,6 +82,7 @@ body,
 }
 
 /* Hide "Powerd by Clerk" on Sign in */
-.cl-internal-12qvck8 {
+.cl-internal-12qvck8,
+.cl-userButtonPopoverFooter {
     @apply hidden;
 }
