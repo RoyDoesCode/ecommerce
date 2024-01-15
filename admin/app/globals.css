@@ -80,3 +80,8 @@ body,
         @apply bg-background text-foreground;
     }
 }
+
+/* Hide "Powerd by Clerk" on Sign in */
+.cl-internal-12qvck8 {
+    @apply hidden;
+}

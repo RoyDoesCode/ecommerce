@@ -1,3 +1,9 @@
+import { Button } from "@/components/ui/button";
+
 export default function Home() {
-    return <p>Hello Admin Dhashboard</p>;
+    return (
+        <div className="p-4">
+            <Button variant="secondary">Click me</Button>
+        </div>
+    );
 }
