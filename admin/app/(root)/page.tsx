@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-import useStoreModalStore from "@/hooks/useStoreModal";
+import useStoreModalStore from "@/hooks/useStoreModalStore";
 
 const SetupPage = () => {
     const onStoreModalOpen = useStoreModalStore((state) => state.onOpen);

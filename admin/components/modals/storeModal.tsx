@@ -5,7 +5,7 @@ import zod from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import useStoreModalStore from "@/hooks/useStoreModal";
+import useStoreModalStore from "@/hooks/useStoreModalStore";
 import Modal from "@/components/ui/modal";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
