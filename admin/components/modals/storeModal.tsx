@@ -28,7 +28,7 @@ const formSchema = zod.object({
 
 type StoreFormValues = zod.infer<typeof formSchema>;
 
-const StoreModal = () => {
+export const StoreModal = () => {
     const storeModalStore = useStoreModalStore();
 
     const [loading, setLoading] = useState(false);
@@ -101,5 +101,3 @@ const StoreModal = () => {
         </Modal>
     );
 };
-
-export default StoreModal;

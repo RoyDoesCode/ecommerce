@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import StoreModal from "@/components/modals/storeModal";
+import { StoreModal } from "@/components/modals/storeModal";
 
 const ModalProvider = () => {
     const [isMounted, setIsMounted] = useState(false);

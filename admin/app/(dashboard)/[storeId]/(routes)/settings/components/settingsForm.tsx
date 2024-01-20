@@ -5,12 +5,16 @@ import { Trash } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import zod from "zod";
+import toast from "react-hot-toast";
+import axios from "axios";
 import React, { useState } from "react";
+import { useParams, useRouter } from "next/navigation";
 
 import { Heading } from "@/components/ui/heading";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
+import { AlertModal } from "@/components/modals/alertModal";
 import {
     Form,
     FormControl,
@@ -33,7 +37,10 @@ const formSchema = zod.object({
 type SettingsFormValues = zod.infer<typeof formSchema>;
 
 const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
-    const [open, setOpen] = useState(false);
+    const params = useParams();
+    const router = useRouter();
+
+    const [deleteModalOpen, setDeleteModalOpen] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const form = useForm<SettingsFormValues>({
@@ -42,11 +49,48 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
     });
 
     const onValidSubmit = async (values: SettingsFormValues) => {
-        console.log(values);
+        try {
+            setLoading(true);
+
+            await axios.patch(`/api/stores/${params.storeId}`, values);
+            router.refresh();
+
+            toast.success("Store updated.");
+        } catch (error) {
+            toast.error("Something went wrong.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const onDelete = async () => {
+        try {
+            setLoading(true);
+
+            await axios.delete(`/api/stores/${params.storeId}`);
+            router.refresh();
+            router.push("/");
+
+            toast.success("Store deleted.");
+        } catch (error) {
+            toast.error(
+                "Make sure you removed all products and categories first."
+            );
+        } finally {
+            setLoading(false);
+            setDeleteModalOpen(false);
+        }
     };
 
     return (
         <>
+            <AlertModal
+                isOpen={deleteModalOpen}
+                loading={loading}
+                onClose={() => setDeleteModalOpen(false)}
+                onConfirm={onDelete}
+            />
+
             <div className="flex items-center justify-between">
                 <Heading
                     title="Settings"
@@ -56,7 +100,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
                     disabled={loading}
                     variant="destructive"
                     size="sm"
-                    onClick={() => setOpen(true)}
+                    onClick={() => setDeleteModalOpen(true)}
                 >
                     <Trash className="h-4 w-4" />
                 </Button>

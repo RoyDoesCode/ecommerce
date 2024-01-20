@@ -15,6 +15,11 @@ export const MainNav: React.FC<React.HTMLAttributes<HTMLElement>> = ({
 
     const routes = [
         {
+            href: `/${params.storeId}`,
+            label: "Dashboard",
+            active: pathname === `/${params.storeId}`,
+        },
+        {
             href: `/${params.storeId}/settings`,
             label: "Settings",
             active: pathname === `/${params.storeId}/settings`,
@@ -35,7 +40,7 @@ export const MainNav: React.FC<React.HTMLAttributes<HTMLElement>> = ({
                     className={cn(
                         "text-sm font-medium transition-colors hover:text-primary",
                         route.active
-                            ? "text-black dark:text-white"
+                            ? "/dark:text-white text-black"
                             : "text-muted-foreground"
                     )}
                 >

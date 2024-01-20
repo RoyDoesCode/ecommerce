@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import React from "react";
 
 import useUser from "@/hooks/useUser";
-import useStore from "@/hooks/useStore";
+import prismadb from "@/lib/prismadb";
 
 export default async function SetupLayout({
     children,
@@ -10,7 +10,11 @@ export default async function SetupLayout({
     children: React.ReactNode;
 }) {
     const userId = useUser();
-    const store = await useStore(userId);
+    const store = await prismadb.store.findFirst({
+        where: {
+            userId,
+        },
+    });
 
     if (store) {
         redirect(`/${store.id}`);
