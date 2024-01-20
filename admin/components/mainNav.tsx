@@ -6,7 +6,7 @@ import { useParams, usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 
-const MainNav: React.FC<React.HTMLAttributes<HTMLElement>> = ({
+export const MainNav: React.FC<React.HTMLAttributes<HTMLElement>> = ({
     className,
     ...props
 }) => {
@@ -45,5 +45,3 @@ const MainNav: React.FC<React.HTMLAttributes<HTMLElement>> = ({
         </nav>
     );
 };
-
-export default MainNav;

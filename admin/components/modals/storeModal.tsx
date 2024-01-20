@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import useStoreModalStore from "@/hooks/useStoreModalStore";
-import Modal from "@/components/ui/modal";
+import { Modal } from "@/components/ui/modal";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -21,22 +21,26 @@ import {
 } from "@/components/ui/form";
 
 const formSchema = zod.object({
-    name: zod.string().min(1),
+    name: zod
+        .string()
+        .min(1, { message: "Name must contain at least 1 character." }),
 });
+
+type StoreFormValues = zod.infer<typeof formSchema>;
 
 const StoreModal = () => {
     const storeModalStore = useStoreModalStore();
 
     const [loading, setLoading] = useState(false);
 
-    const form = useForm<zod.infer<typeof formSchema>>({
+    const form = useForm<StoreFormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
         },
     });
 
-    const onValidSubmit = async (values: zod.infer<typeof formSchema>) => {
+    const onValidSubmit = async (values: StoreFormValues) => {
         try {
             setLoading(true);
 

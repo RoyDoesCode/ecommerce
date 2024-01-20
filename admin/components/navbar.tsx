@@ -1,17 +1,13 @@
-import { UserButton, auth } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
+import { UserButton } from "@clerk/nextjs";
 import React from "react";
 
-import MainNav from "@/components/mainNav";
-import StoreSwitcher from "@/components/storeSwitcher";
+import { MainNav } from "@/components/mainNav";
+import { StoreSwitcher } from "@/components/storeSwitcher";
 import prismadb from "@/lib/prismadb";
+import useUser from "@/hooks/useUser";
 
-const Navbar = async () => {
-    const { userId } = auth();
-
-    if (!userId) {
-        redirect("/sign-in");
-    }
+export const Navbar = async () => {
+    const userId = useUser();
 
     const stores = await prismadb.store.findMany({
         where: {
@@ -33,5 +29,3 @@ const Navbar = async () => {
         </div>
     );
 };
-
-export default Navbar;
