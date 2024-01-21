@@ -24,7 +24,6 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form";
-import useOrigin from "@/hooks/useOrigin";
 
 const formSchema = zod.object({
     label: zod
@@ -44,7 +43,6 @@ interface BillboardFormProps {
 const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
     const params = useParams();
     const router = useRouter();
-    const origin = useOrigin();
 
     const [deleteModalOpen, setDeleteModalOpen] = useState(false);
     const [loading, setLoading] = useState(false);
