@@ -83,7 +83,7 @@ export const StoreSwitcher = ({
                                 <CommandItem
                                     key={store.id}
                                     onSelect={() => onStoreSelect(store)}
-                                    className="text-sm"
+                                    className="cursor-pointer text-sm"
                                 >
                                     <StoreIcon className="mr-2 h-4 w-4" />
                                     {store.name}
