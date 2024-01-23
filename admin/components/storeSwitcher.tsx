@@ -83,7 +83,7 @@ export const StoreSwitcher = ({
                                 <CommandItem
                                     key={store.id}
                                     onSelect={() => onStoreSelect(store)}
-                                    className="cursor-pointer text-sm"
+                                    className="text-sm"
                                 >
                                     <StoreIcon className="mr-2 h-4 w-4" />
                                     {store.name}
@@ -107,7 +107,6 @@ export const StoreSwitcher = ({
                                     setOpen(false);
                                     storeModalStore.onOpen();
                                 }}
-                                className="cursor-pointer"
                             >
                                 <PlusCircle className="mr-2 h-5 w-5" />
                                 Create Store

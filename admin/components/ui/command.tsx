@@ -160,7 +160,7 @@ const CommandItem = React.forwardRef<
         className={cn(
             `relative 
             flex 
-            cursor-default 
+            cursor-pointer 
             select-none 
             items-center 
             rounded-sm 

@@ -25,9 +25,9 @@ export const MainNav: React.FC<React.HTMLAttributes<HTMLElement>> = ({
             active: pathname === `/${params.storeId}/billboards`,
         },
         {
-            href: `/${params.storeId}/categpries`,
-            label: "Categpries",
-            active: pathname === `/${params.storeId}/categpries`,
+            href: `/${params.storeId}/categories`,
+            label: "Categories",
+            active: pathname === `/${params.storeId}/categories`,
         },
         {
             href: `/${params.storeId}/settings`,

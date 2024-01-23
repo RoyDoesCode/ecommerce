@@ -68,15 +68,11 @@ const CellAction: React.FC<CellActionProps> = ({ data }) => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                     <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                    <DropdownMenuItem
-                        className="cursor-pointer"
-                        onClick={onCopy}
-                    >
+                    <DropdownMenuItem onClick={onCopy}>
                         <Copy className="mr-2 h-4 w-4" />
                         Copy ID
                     </DropdownMenuItem>
                     <DropdownMenuItem
-                        className="cursor-pointer"
                         onClick={() =>
                             router.push(
                                 `/${params.storeId}/billboards/${data.id}`
@@ -86,10 +82,7 @@ const CellAction: React.FC<CellActionProps> = ({ data }) => {
                         <Edit className="mr-2 h-4 w-4" />
                         Update
                     </DropdownMenuItem>
-                    <DropdownMenuItem
-                        className="cursor-pointer"
-                        onClick={() => setDeleteModalOpen(true)}
-                    >
+                    <DropdownMenuItem onClick={() => setDeleteModalOpen(true)}>
                         <Trash className="mr-2 h-4 w-4" />
                         Delete
                     </DropdownMenuItem>
