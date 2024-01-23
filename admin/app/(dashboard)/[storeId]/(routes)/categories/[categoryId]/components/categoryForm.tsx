@@ -85,15 +85,16 @@ const CategoryForm: React.FC<CategoryFormProps> = ({
 
             if (initialData) {
                 await axios.patch(
-                    `/api/${params.storeId}/billboards/${params.billboardId}`,
+                    `/api/${params.storeId}/categories/${params.categoryId}`,
                     values
                 );
             } else {
-                await axios.post(`/api/${params.storeId}/billboards`, values);
+                await axios.post(`/api/${params.storeId}/categories`, values);
             }
 
-            router.push(`/${params.storeId}/billboards`);
+            router.push(`/${params.storeId}/categories`);
             router.refresh();
+
             toast.success(props.toastMessage);
         } catch (error) {
             toast.error("Something went wrong.");
@@ -107,15 +108,15 @@ const CategoryForm: React.FC<CategoryFormProps> = ({
             setLoading(true);
 
             await axios.delete(
-                `/api/${params.storeId}/billboards/${params.billboardId}`
+                `/api/${params.storeId}/categories/${params.categoryId}`
             );
-            router.push(`/${params.storeId}/billboards`);
+            router.push(`/${params.storeId}/categories`);
             router.refresh();
 
-            toast.success("Billboard deleted.");
+            toast.success("Category deleted.");
         } catch (error) {
             toast.error(
-                "Make sure you removed all categories using this billboard first."
+                "Make sure you removed all products using this category first."
             );
         } finally {
             setLoading(false);
