@@ -1,7 +1,7 @@
-import React from "react";
 import { format } from "date-fns";
 
 import prismadb from "@/lib/prismadb";
+
 import CategoryClient from "./components/client";
 import { CategoryColumn } from "./components/columns";
 

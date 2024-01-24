@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
-import toast from "react-hot-toast";
 import axios from "axios";
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
 
-import { SizeColumn } from "./columns";
+import { AlertModal } from "@/components/modals/alertModal";
+import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -14,8 +15,8 @@ import {
     DropdownMenuLabel,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdownMenu";
-import { Button } from "@/components/ui/button";
-import { AlertModal } from "@/components/modals/alertModal";
+
+import { SizeColumn } from "./columns";
 
 interface CellActionProps {
     data: SizeColumn;

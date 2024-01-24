@@ -1,21 +1,15 @@
 "use client";
 
-import { Billboard } from "@prisma/client";
-import { Trash } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import zod from "zod";
-import toast from "react-hot-toast";
 import axios from "axios";
-import React, { useState } from "react";
+import { Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import zod from "zod";
 
-import { Heading } from "@/components/ui/heading";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alertModal";
-import { ImageUpload } from "@/components/ui/imageUpload";
+import { Button } from "@/components/ui/button";
 import {
     Form,
     FormControl,
@@ -24,6 +18,12 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form";
+import { Heading } from "@/components/ui/heading";
+import { ImageUpload } from "@/components/ui/imageUpload";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Billboard } from "@prisma/client";
 
 const formSchema = zod.object({
     label: zod

@@ -1,7 +1,8 @@
 import React from "react";
 
-import useUser from "@/hooks/useUser";
 import useStore from "@/hooks/useStore";
+import useUser from "@/hooks/useUser";
+
 import SettingsForm from "./components/settingsForm";
 
 interface SettingsPageProps {

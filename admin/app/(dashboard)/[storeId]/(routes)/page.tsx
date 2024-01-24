@@ -1,6 +1,5 @@
 import React from "react";
 
-import prismadb from "@/lib/prismadb";
 import useStore from "@/hooks/useStore";
 import useUser from "@/hooks/useUser";
 

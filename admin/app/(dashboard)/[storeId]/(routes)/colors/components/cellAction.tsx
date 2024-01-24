@@ -16,10 +16,10 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdownMenu";
 
-import { CategoryColumn } from "./columns";
+import { ColorColumn } from "./columns";
 
 interface CellActionProps {
-    data: CategoryColumn;
+    data: ColorColumn;
 }
 
 const CellAction: React.FC<CellActionProps> = ({ data }) => {
@@ -31,20 +31,20 @@ const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
     const onCopy = () => {
         navigator.clipboard.writeText(data.id);
-        toast.success("Category ID copied to the clipboard.");
+        toast.success("Color ID copied to the clipboard.");
     };
 
     const onDelete = async () => {
         try {
             setLoading(true);
 
-            await axios.delete(`/api/${params.storeId}/categories/${data.id}`);
+            await axios.delete(`/api/${params.storeId}/colors/${data.id}`);
             router.refresh();
 
-            toast.success("Category deleted.");
+            toast.success("Color deleted.");
         } catch (error) {
             toast.error(
-                "Make sure you removed all products using this category first."
+                "Make sure you removed all products using this color first."
             );
         } finally {
             setLoading(false);
@@ -75,9 +75,7 @@ const CellAction: React.FC<CellActionProps> = ({ data }) => {
                     </DropdownMenuItem>
                     <DropdownMenuItem
                         onClick={() =>
-                            router.push(
-                                `/${params.storeId}/categories/${data.id}`
-                            )
+                            router.push(`/${params.storeId}/colors/${data.id}`)
                         }
                     >
                         <Edit className="mr-2 h-4 w-4" />

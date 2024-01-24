@@ -1,6 +1,6 @@
+import { Check, Copy, Server } from "lucide-react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { Check, CheckCheck, Copy, Server } from "lucide-react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge, BadgeProps } from "@/components/ui/badge";

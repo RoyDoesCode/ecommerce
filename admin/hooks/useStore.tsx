@@ -1,5 +1,6 @@
-import prismadb from "@/lib/prismadb";
 import { redirect } from "next/navigation";
+
+import prismadb from "@/lib/prismadb";
 
 const useStore = async (userId: string, storeId: string) => {
     const store = await prismadb.store.findFirst({
