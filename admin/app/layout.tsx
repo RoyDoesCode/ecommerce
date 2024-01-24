@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import ModalProvider from "@/components/providers/modalProvider";
 import ToastProvider from "@/components/providers/toastProvider";
 import "./globals.css";
 
-const poppins = Poppins({
-    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+const inter = Inter({
     subsets: ["latin"],
 });
 
@@ -24,7 +23,7 @@ export default function RootLayout({
     return (
         <ClerkProvider>
             <html lang="en">
-                <body className={poppins.className}>
+                <body className={inter.className}>
                     <ToastProvider />
                     <ModalProvider />
                     {children}
