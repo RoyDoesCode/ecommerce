@@ -1,9 +1,9 @@
 "use client";
 
+import { Checkbox } from "@/components/ui/checkbox";
 import { ColumnDef } from "@tanstack/react-table";
 
 import CellAction from "./cellAction";
-import { Checkbox } from "@/components/ui/checkbox";
 
 export type ProductColumn = {
     id: string;
