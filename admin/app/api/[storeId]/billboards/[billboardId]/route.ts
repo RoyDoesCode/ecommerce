@@ -9,7 +9,7 @@ export async function GET(
 ) {
     try {
         if (!params.billboardId) {
-            return new NextResponse("Billboard id is required", {
+            return new NextResponse("Billboard ID is required", {
                 status: 400,
             });
         }
@@ -49,7 +49,7 @@ export async function PATCH(
         }
 
         if (!params.billboardId) {
-            return new NextResponse("Billboard id is required", {
+            return new NextResponse("Billboard ID is required", {
                 status: 400,
             });
         }
@@ -95,7 +95,7 @@ export async function DELETE(
         }
 
         if (!params.billboardId) {
-            return new NextResponse("Billboard id is required", {
+            return new NextResponse("Billboard ID is required", {
                 status: 400,
             });
         }
