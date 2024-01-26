@@ -3,8 +3,9 @@ import "./globals.css";
 
 import { Inter } from "next/font/google";
 
-import ModalProvider from "@/components/providers/modalProvider";
-import ToastProvider from "@/components/providers/toastProvider";
+import ModalProvider from "@/providers/modalProvider";
+import { ThemeProvider } from "@/providers/themeProvider";
+import ToastProvider from "@/providers/toastProvider";
 import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({
@@ -25,9 +26,15 @@ export default function RootLayout({
         <ClerkProvider>
             <html lang="en">
                 <body className={inter.className}>
-                    <ToastProvider />
-                    <ModalProvider />
-                    {children}
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="system"
+                        enableSystem
+                    >
+                        <ToastProvider />
+                        <ModalProvider />
+                        {children}
+                    </ThemeProvider>
                 </body>
             </html>
         </ClerkProvider>
