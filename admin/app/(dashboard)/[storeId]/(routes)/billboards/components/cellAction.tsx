@@ -81,7 +81,7 @@ const CellAction: React.FC<CellActionProps> = ({ data }) => {
                         }
                     >
                         <Edit className="mr-2 h-4 w-4" />
-                        Update
+                        Edit
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={() => setDeleteModalOpen(true)}>
                         <Trash className="mr-2 h-4 w-4" />
