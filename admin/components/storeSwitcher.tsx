@@ -48,7 +48,7 @@ export const StoreSwitcher = ({
 
     const currentStore = useMemo(
         () => items.find((item) => item.id === params.storeId),
-        [items]
+        [items, params.storeId]
     );
 
     const onStoreSelect = (store: Store) => {
