@@ -33,7 +33,7 @@ export const columns: ColumnDef<OrderColumn>[] = [
     {
         accessorKey: "isPaid",
         header: "Paid",
-        cell: ({ row }) => <Checkbox checked={row.original.isPaid} />,
+        cell: ({ row }) => <Checkbox checked={row.original.isPaid} disabled />,
     },
     {
         accessorKey: "createdAt",

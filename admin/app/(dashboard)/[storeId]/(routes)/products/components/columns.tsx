@@ -25,12 +25,16 @@ export const columns: ColumnDef<ProductColumn>[] = [
     {
         accessorKey: "isArchived",
         header: "Archived",
-        cell: ({ row }) => <Checkbox checked={row.original.isArchived} />,
+        cell: ({ row }) => (
+            <Checkbox checked={row.original.isArchived} disabled />
+        ),
     },
     {
         accessorKey: "isFeatured",
         header: "Featured",
-        cell: ({ row }) => <Checkbox checked={row.original.isFeatured} />,
+        cell: ({ row }) => (
+            <Checkbox checked={row.original.isFeatured} disabled />
+        ),
     },
     {
         accessorKey: "price",
